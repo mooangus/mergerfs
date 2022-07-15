@@ -175,7 +175,7 @@ install-base: build/mergerfs
 
 install-mount-tools: install-base
 	$(MKDIR) -p "$(INSTALLBINDIR)"
-	$(MAKE) -C libfuse install
+	$(MAKE) -C libfuse
 
 install-man: $(MANPAGE)
 	$(MKDIR) -p "$(INSTALLMAN1DIR)"
