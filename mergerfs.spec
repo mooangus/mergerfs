@@ -25,7 +25,7 @@ management of files across numerous commodity storage devices. It is
 similar to mhddfs, unionfs, and aufs.
 
 %build
-sed 's/chown/echo/g' %{buildroot}/libfuse/Makefile > %{buildroot}/libfuse/Makefile
+sed 's/chown/echo/g' /builddir/build/SOURCES/mergerfs%{version}/libfuse/Makefile > /builddir/build/SOURCES/mergerfs-%{version}/libfuse/Makefile
 make %{?_smp_mflags}
 
 %install
