@@ -7,7 +7,7 @@ Group:    Applications/System
 License:	ISC
 URL:      https://github.com/trapexit/mergerfs
 
-Source:   https://github.com/trapexit/mergerfs/releases/download/${version}/mergerfs-%{version}.tar.gz
+Source:   https://github.com/trapexit/mergerfs/releases/download/%{version}/mergerfs-%{version}.tar.gz
 
 BuildRequires:  gcc-c++
 BuildRequires:	git
