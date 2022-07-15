@@ -175,8 +175,12 @@ install-base: build/mergerfs
 
 install-mount-tools: install-base
 	$(MKDIR) -p "$(INSTALLBINDIR)"
-	$(MAKE) -C libfuse
-
+	$(MAKE) -C libfuse mergerfs-fusermount
+	$(MAKE) -C libfuse mount.mergerfs
+	$(MAKE) -C libfuse strip
+	install -D build/mergerfs-fusermount "$(INSTALLBINDIR)/mergerfs-fusermount"
+	install -D build/mount.mergerfs "$(INSTALLSBINDIR)/mount.mergerfs"
+	
 install-man: $(MANPAGE)
 	$(MKDIR) -p "$(INSTALLMAN1DIR)"
 	$(INSTALL) -v -m 0644 "man/$(MANPAGE)" "$(INSTALLMAN1DIR)/$(MANPAGE)"
