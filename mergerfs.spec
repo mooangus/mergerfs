@@ -1,5 +1,5 @@
 Name:     mergerfs
-Version:  __VERSION__
+Version:  2.33.5
 Release:  1%{?dist}
 Summary:  A featureful FUSE based union filesystem
 
@@ -37,19 +37,3 @@ make install PREFIX=%{_prefix} DESTDIR=%{buildroot}
 %doc %{_mandir}/*
 
 %changelog
-* Fri Apr 26 2019 Antonio SJ Musumeci <trapexit@spawn.link>
-- Update description
-
-* Mon Jan 25 2016 Antonio SJ Musumeci <trapexit@spawn.link>
-- Remove sbin files
-
-* Sat Sep 05 2015 Antonio SJ Musumeci <trapexit@spawn.link>
-- Include PREFIX to install
-
-* Mon Dec 29 2014 Joe Lawrence <joe.lawrence@stratus.com>
-- Tweak rpmbuild to archive current git HEAD into a tarball, then (re)build in
-  the rpmbuild directory -- more complicated but seemingly better suited to
-  generate source and debug rpms.
-
-* Fri Jun 20 2014 Joe Lawrence <joe.lawrence@stratus.com>
-- Initial rpm spec file.
