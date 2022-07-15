@@ -1,5 +1,5 @@
 Name:     mergerfs
-Version:  1.0
+Version:  2.33.5
 Release:  1%{?dist}
 Summary:  A featureful FUSE based union filesystem
 
