@@ -26,7 +26,8 @@ similar to mhddfs, unionfs, and aufs.
 
 %build
 ls
-sed 's/chown/echo/g' libfuse/Makefile > libfuse/Makefile
+mv libfuse/Makefile tmp-Makefile
+sed 's/chown/echo/g' tmp-Makefile > libfuse/Makefile
 make %{?_smp_mflags}
 
 %install
