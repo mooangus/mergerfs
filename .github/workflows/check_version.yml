@@ -23,7 +23,7 @@ jobs:
         VERSION=$CHANGE_VERSION
         if [ "$VERSION" == 0 ]; then exit 27; fi
         mv mergerfs.spec tmp-mergerfs.spec
-        sed "s|Version:.*|Version: \${NEW_VERSION}|" tmp-mergerfs.spec > mergerfs.spec
+        sed "s|Version:.*|Version:  \${NEW_VERSION}|" tmp-mergerfs.spec > mergerfs.spec
         rm tmp-mergerfs.spec
         git config --global user.email "14142145+moobarn@users.noreply.github.com"
         git config --global user.name "Chris Brown"
