@@ -5,6 +5,7 @@ on:
       - 'version.txt'
   schedule:
     - cron:  '0 0 * * *'
+  workflow_dispatch:
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
