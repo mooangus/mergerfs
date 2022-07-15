@@ -175,6 +175,7 @@ install-base: build/mergerfs
 
 install-mount-tools: install-base
 	$(MKDIR) -p "$(INSTALLBINDIR)"
+	$(SED) 's/chown/echo/g' Makefile > Makefile
 	$(MAKE) -C libfuse install
 	
 install-man: $(MANPAGE)
