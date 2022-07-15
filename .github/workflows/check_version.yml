@@ -1,0 +1,30 @@
+name: Check For New Version
+on:
+  push:
+    paths:
+      - 'version.txt'
+  schedule:
+    - cron:  '0 0 * * *'
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository }}
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Check Out Repository Code
+      uses: actions/checkout@v2
+    - name: Check For New Version
+      run: |
+        NEW_VERSION=$(git -c 'versionsort.suffix=-' ls-remote --tags --sort='v:refname' https://github.com/trapexit/mergerfs '*.*.*' | tail --lines=1 | sed 's/\^{}//' | sed 's/v//' | cut --delimiter='/' --fields=3)
+        CURRENT_VERSION=$(cat version.txt)
+        if [ "$NEW_VERSION" == "$CURRENT_VERSION" ]; then CHANGE_VERSION=0; else CHANGE_VERSION=1; echo "$NEW_VERSION" > version.txt; fi
+        VERSION=$CHANGE_VERSION
+        if [ "$VERSION" == 0 ]; then exit 27; fi
+        mv mergerfs.spec tmp-mergerfs.spec
+        sed sed '/Version:/s/.*/Version: $NEW_VERSION$/' tmp-mergerfs.spec > mergerfs.spec
+        git config --global user.email "14142145+moobarn@users.noreply.github.com"
+        git config --global user.name "Chris Brown"
+        git add --all
+        git commit -m "Version Change Detected"
+        git push
