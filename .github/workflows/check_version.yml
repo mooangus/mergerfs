@@ -1,4 +1,4 @@
-name: Check For New Version
+name: Check For New Version v2
 on:
   push:
     paths:
