@@ -22,7 +22,7 @@ Requires:	fuse
 %description
 mergerfs is a union filesystem geared towards simplifying storage and
 management of files across numerous commodity storage devices. It is
-similar to mhddfs, unionfs, and aufs.
+similar to mhddfs, unionfs, and aufs. (custom 2024/03/13)
 
 %build
 mv libfuse/Makefile tmp-Makefile
