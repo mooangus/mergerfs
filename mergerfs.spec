@@ -28,6 +28,9 @@ similar to mhddfs, unionfs, and aufs.
 mv libfuse/Makefile tmp-Makefile
 sed 's/chown/echo/g' tmp-Makefile > libfuse/Makefile
 rm -f tmp-Makefile
+mv Makefile tmp-Makefile
+sed 's/444/666/g' tmp-Makefile > Makefile
+rm -f tmp-Makefile
 make %{?_smp_mflags}
 
 
