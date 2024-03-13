@@ -25,9 +25,9 @@ management of files across numerous commodity storage devices. It is
 similar to mhddfs, unionfs, and aufs.
 
 %build
-ls
 mv libfuse/Makefile tmp-Makefile
 sed 's/chown/echo/g' tmp-Makefile > libfuse/Makefile
+rm -f tmp-Makefile
 make %{?_smp_mflags}
 
 %install
@@ -37,6 +37,7 @@ make install PREFIX=%{_prefix} DESTDIR=%{buildroot}
 /usr/bin/mergerfs
 /usr/bin/mergerfs-fusermount
 /sbin/mount.mergerfs
+/usr/lib/mergerfs/preload.so
 %doc %{_mandir}/*
 
 %changelog
